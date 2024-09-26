@@ -1,0 +1,68 @@
+
+* Network Manger'ı yazmaya başladık *
+
+- https://jsonplaceholder.typicode.com -> Bu bizim base URL'miz
+- /users -> Bu da bizim path'miz yani endPointimiz, büyük projelerde çok fazla bulunur
+- Endpoint'lerimi handle atmek için bir Enpoint adında bir file oluşturuyoruz.
+
+- Benim baseURL'den data çekmek için bir methoda ihtiyacım var (get,post,patch,delete...)
+- HTTP Metodları bunlar.
+
+
+
+* Endpoint Dosyasını oluşturyoruz *
+
+- İçeride bize lazım olan tüm yapıları oluşturuyouruz
+- 1 HTTPMethod (Get, Post, Delete, Patch)
+- 2 EndPoint (BaseURL, path, HTTPMethod, Headers, request())
+- 3 NetworkError
+
+- Request fonksiyonumuzu oluşturuyoruz bu bize bir URLRequest döndürücek.
+- İçersinde component bileşenlerimizi veriyoruz(baseURL, HTTPMethod, Header, path)
+
+
+
+* Network Menager'imizi yazmaya başlayabiliriz *
+
+- NetworkManager için bir adet Protocolde oluşturuoyuz ve Classımız bu Protocılü conform edecek.
+-Şimdi ilk olarak NetworkManagerProtocol içersinde bulunan request adlı fonksiynu generic hale getirelim özelleşterelim
+- T type olmalı ve Codable'ye conform edecek
+- Neden T ve Codable'ye conform etmesini istiyoruz; biz T type a herhangi bir istediğimiz nesne tipini yollayabiliriz (user, animal ...)
+- Bizden parametre olarak bir  endPoint bekleyecek ve bu endPoint EndPoint enumuza bu fonksiyon
+- completion bloğunun işlevine gelecek olursak, burada bir ağ isteği olucak
+// buraya devam edicem
+
+??? @ESCAPİNG
+Bir closure, fonksiyon tamamlandıktan sonra çağrılacaksa, yani fonksiyon çalışmayı bitirdikten sonra bile closure hayatta kalacaksa, closure'ı @escaping ile işaretlemen gerekir. Bu, genellikle asenkron işlemlerde (örneğin, ağ istekleri veya veri tabanı işlemleri gibi uzun süren işlemlerde) kullanılır.
+
+??? Singleton Network Manager
+- NetworkManager'ımın instancesini oluşturuyorum singleton şekilde oluşturuyorum neden? !!!!!!!
+- Bu yapı, tek bir global erişilebilir NetworkManager örneği oluşturmanı sağlar. Bu sayede
+- Tek bir network yöneticisi: Ağ isteklerini yöneten bir sınıf genellikle uygulama boyunca tekrar kullanılmak istenir. NetworkManager'ın sadece bir kez oluşturulup, aynı örneği kullanarak tüm ağ isteklerini yönetmek isteyebilirsin. Her çağırışında yeni bir nesne oluşturmak yerine, tek bir nesneyle tüm ağ işlemlerini yönetebilirsin.
+- Bellek yönetimi: Her seferinde yeni bir NetworkManager nesnesi oluşturmak yerine tek bir nesne kullanmak, gereksiz bellek kullanımını önler.
+- Merkezi yapı: Singleton yapısı sayesinde NetworkManager'ın merkezi bir yapıda olmasını sağlarsın. Böylece ağ isteği yapılan her yerde aynı NetworkManager kullanılır, farklı örnekler arasında tutarsızlık oluşmaz.
+- Global erişim: Uygulamanın farklı yerlerinden NetworkManager'a kolayca erişebilirsin. NetworkManager.shared ile her zaman aynı nesneye ulaşmak mümkündür.
+---Özetle---
+Bu yapı, tek bir global erişilebilir NetworkManager örneği oluşturmanı sağlar. Bu sayede:
+Uygulamanın herhangi bir yerinde aynı NetworkManager nesnesini kullanırsın.
+Bellek ve performans açısından avantaj sağlarsın.
+Merkezi bir yapı ile network işlemlerini daha kolay yönetirsin.
+
+- Yazmaya devam ediyouz
+- Burada let session = URLSession.shared şeklinde bir yapı oluşturudk sebebini anlamadım.
+- URLSession.shared.dataTask(with:) işlemi, bir URL'den veri almak veya sunucuya veri göndermek için kullanılan asenkron bir yöntemdir. Bu yöntem, ağ işlemlerini (HTTP istekleri) gerçekleştirmek için yaygın olarak kullanılır ve uygulamanın ana thread'ini (UI thread) bloke etmeden ağ üzerinden veri alıp göndermenize olanak tanır.
+- Burada bize bu completion bloğundan dönen data, response, error değerlerinin tamamı nil biz bunları unwrap edeceğiz.
+- Burada ilk olarak error ile başlıyoruz burada önemli bir noktaya değeneceğiz CurtomNetwork Errorlarımızı oluşturuyoruz
+- Onun dışunda responseCode'larımızın controlünü sağlıyoruz
+- status code kontrol içersinde 200 ile 299 arasında bize bir result dönücek ve biz bunu completionda succes durumda döneceğiz.
+- Bu bize ara katmandan döncecek direkt olarak requeste VC veya VM üzerinden değil. oluşturduğumuz ara katman üzerinden dönecek ben bunu UserService olarak adlandırıyorum.
+
+
+* UserService Katmanı *
+- Burada direkt olarak bizim user'ımızı çekmemizi sağlayan getUser() fonksiyonumuzu yazıyorum
+- Burada artık T type değil json'ımıza uygun olacak şekilde bir User model array'i veriyoruz.
+- Ve bu fonksiyon aracılığyla aldığımız endPoint ve complation değerlerini NetworkManager katmanımzda bulunan request' e gönderiyoruz
+
+
+
+

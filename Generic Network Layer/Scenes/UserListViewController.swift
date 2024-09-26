@@ -9,33 +9,35 @@ import UIKit
 
 class UserListViewController: UIViewController {
     
+    // MARK: - Properties
     private var users: [User] = []
-    var viewModel = UserListViewModel()
     
+    var viewModel: UserListViewModelProtocol! {
+        didSet {
+            viewModel.delegate = self
+        }
+    }
     
-//    var viewModel: ViewModelProtocol! {
-//        didSet{
-//            viewModel.delegate = self
-//        }
-//    }
-    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
         view.backgroundColor = .red
         viewModel.loadUserList()
     }
 }
 
+// MARK: - UserListViewModelDelegate
 extension UserListViewController: UserListViewModelDelegate {
+    
+    // MARK: - Handle ViewModel Output
     func handleViewModelOutput(_ output: UserListViewModelOutput) {
         switch output {
         case .showUser(let user):
             self.users = user
             print(self.users)
-        case .updateTitle(let title):
+        case .updateTitle(_):
+            // TODO: Implement.
             break
         }
     }
 }
-

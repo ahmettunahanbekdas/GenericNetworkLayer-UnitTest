@@ -19,7 +19,7 @@ final class NetworkManager: NetworkManagerProtocol {
     let session = URLSession.shared
     private init(){}
     
-    func request<T: Codable>(_ endPoint: EndPoint, completion: @escaping (Result<T,  NetworkError>) -> Void) {
+    func request<T: Codable>(_ endPoint: EndPoint, completion: @escaping (Result<T, NetworkError>) -> Void) {
         let task = session.dataTask(with: endPoint.requst()) { data, response, error in
             guard  error == nil else {
                 completion(.failure(.unableToCompleteError))

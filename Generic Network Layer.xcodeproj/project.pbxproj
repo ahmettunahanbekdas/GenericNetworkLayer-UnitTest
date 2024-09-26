@@ -18,6 +18,10 @@
 		0E9AE4042CA4325600B939DA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AE4032CA4325600B939DA /* User.swift */; };
 		0E9AE4062CA43DBD00B939DA /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9AE4052CA43DBD00B939DA /* UserListViewModel.swift */; };
 		0EF7B1242CA51C910076A92A /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B1232CA51C910076A92A /* UserService.swift */; };
+		0EF7B1292CA52C6F0076A92A /* UserListContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B1282CA52C6F0076A92A /* UserListContracts.swift */; };
+		0EF7B12B2CA52D010076A92A /* UserListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B12A2CA52D010076A92A /* UserListBuilder.swift */; };
+		0EF7B12D2CA52D650076A92A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B12C2CA52D650076A92A /* AppRouter.swift */; };
+		0EF7B12F2CA52D6D0076A92A /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B12E2CA52D6D0076A92A /* AppContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		0E9AE4032CA4325600B939DA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0E9AE4052CA43DBD00B939DA /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		0EF7B1232CA51C910076A92A /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = "Generic Network Layer/Service/Services/UserService.swift"; sourceTree = SOURCE_ROOT; };
+		0EF7B1282CA52C6F0076A92A /* UserListContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListContracts.swift; sourceTree = "<group>"; };
+		0EF7B12A2CA52D010076A92A /* UserListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListBuilder.swift; sourceTree = "<group>"; };
+		0EF7B12C2CA52D650076A92A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		0EF7B12E2CA52D6D0076A92A /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,8 @@
 			children = (
 				0E9AE3E72CA41C9800B939DA /* UserListViewController.swift */,
 				0E9AE4052CA43DBD00B939DA /* UserListViewModel.swift */,
+				0EF7B1282CA52C6F0076A92A /* UserListContracts.swift */,
+				0EF7B12A2CA52D010076A92A /* UserListBuilder.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -88,6 +98,9 @@
 		0E9AE3F82CA41CDC00B939DA /* App */ = {
 			isa = PBXGroup;
 			children = (
+				0E9AE3E52CA41C9800B939DA /* SceneDelegate.swift */,
+				0EF7B12C2CA52D650076A92A /* AppRouter.swift */,
+				0EF7B12E2CA52D6D0076A92A /* AppContainer.swift */,
 				0E9AE3E32CA41C9800B939DA /* AppDelegate.swift */,
 			);
 			path = App;
@@ -99,7 +112,6 @@
 				0E9AE3F12CA41C9900B939DA /* Info.plist */,
 				0E9AE3EC2CA41C9900B939DA /* Assets.xcassets */,
 				0E9AE3EE2CA41C9900B939DA /* LaunchScreen.storyboard */,
-				0E9AE3E52CA41C9800B939DA /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -217,13 +229,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EF7B1292CA52C6F0076A92A /* UserListContracts.swift in Sources */,
 				0EF7B1242CA51C910076A92A /* UserService.swift in Sources */,
 				0E9AE3FC2CA41F6D00B939DA /* NetworkManager.swift in Sources */,
 				0E9AE3E82CA41C9800B939DA /* UserListViewController.swift in Sources */,
 				0E9AE4042CA4325600B939DA /* User.swift in Sources */,
+				0EF7B12F2CA52D6D0076A92A /* AppContainer.swift in Sources */,
 				0E9AE4012CA4228000B939DA /* EndPoint.swift in Sources */,
 				0E9AE3E42CA41C9800B939DA /* AppDelegate.swift in Sources */,
+				0EF7B12D2CA52D650076A92A /* AppRouter.swift in Sources */,
 				0E9AE3E62CA41C9800B939DA /* SceneDelegate.swift in Sources */,
+				0EF7B12B2CA52D010076A92A /* UserListBuilder.swift in Sources */,
 				0E9AE4062CA43DBD00B939DA /* UserListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

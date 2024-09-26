@@ -64,5 +64,28 @@ Merkezi bir yapı ile network işlemlerini daha kolay yönetirsin.
 - Ve bu fonksiyon aracılığyla aldığımız endPoint ve complation değerlerini NetworkManager katmanımzda bulunan request' e gönderiyoruz
 
 
+* Proje Başlatma Adımları *
+
+- Scene Delegate -
+- Uygulamnın kullanıcı arayüzünü yönetmekle sorumludur. uygulama başladığında, bir window oluşturur. ve bu pencerenin kök görünüm denetleyicisini (rootViewController) oluşturur.
+- Neden önemli? Uygulamanın arayüzünün başlatılmasından ve yaşam döngüsünden sorumlu olduğu için burada kontrol merkezi olarak çalışır. AppRouter'ı kullanarak uygulamanın başlangıç ekranını belirler.
 
 
+- App Router -
+- İşlevi: AppRouter, uygulamanın başlangıç akışını belirlemek için kullanılır. Burada, UserListViewController'ı oluşturur ve bir UINavigationController'ın içine yerleştirir. Bu, uygulamanın ilk görünüm denetleyicisi olur.
+- Neden önemli? Router, uygulamanın navigasyon akışını düzenler. Birden fazla ekran arasında geçiş yapmayı kolaylaştırır. Ayrıca, router kullanarak uygulamanın farklı bölümlerini bağımsız olarak yönetmek daha kolaydır.
+
+- AppContainer -
+- İşlevi: AppContainer, tüm uygulama genelinde kullanılacak servisler ve router gibi temel bileşenleri barındıran bir "container" (kapsayıcı) yapıdır.
+- Neden önemli? Tüm bağımlılıkları (dependency) merkezi bir yerden yönetmeye olanak sağlar. Örneğin, bir servis sınıfı (network servisleri gibi) tek bir yerden kolayca erişilebilir hale gelir.
+- Artısı: Uygulama genelinde aynı servis veya router'ı tekrar tekrar oluşturmadan, tek bir yerden erişim sağlayabilirsin. Kod tekrarını önler.
+
+
+- User Builder -
+- İşlevi: UserListBuilder, UserListViewController'ı oluşturur ve içine gerekli olan ViewModeli ekler. Burada, ViewModel servisi kullanarak verileri yönetir.
+- Neden önemli? Builder deseni, nesneleri oluştururken bağımlılıkları doğrudan atayarak, bağımlılıkların merkezileşmesine olanak sağlar. Böylece UserListViewController'ın ihtiyaç duyduğu ViewModel ve diğer bileşenler oluşturulur.
+- Artısı: Nesne oluşturma işlemleri tek bir yerde yapılır. Eğer kontrolcülerin nasıl oluşturulduğu değiştirilirse, sadece builder'ı güncelleyerek değişiklik yapabilirsin.
+
+
+
+// MoviePresentation araştır ve uygulamaya uygula 

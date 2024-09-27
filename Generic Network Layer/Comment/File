@@ -88,4 +88,15 @@ Merkezi bir yapı ile network işlemlerini daha kolay yönetirsin.
 
 
 
-// MoviePresentation araştır ve uygulamaya uygula 
+* Movie Presentation *
+
+- Presentation yapısı, uygulamalarda veriyi kullanıcıya sunulacak şekilde hazırlayan bir katmandır. Özellikle ViewModel ile View arasındaki iletişimde kullanılır. İşlevlerini şu şekilde sıralayabiliriz
+
+- UI Bağımsızlık Sağlamak:
+Presentation katmanı, model verisinin kullanıcı arayüzüne uygun hale getirilmiş temsilidir. Bu sayede model yapısındaki değişiklikler, kullanıcı arayüzünü etkilemez, sadece presentation yapısı güncellenir.
+
+- Test Edilebilirliği Artırmak:
+Presentation yapıları, arayüz kodlarından bağımsız oldukları için daha kolay test edilebilir. UI elementleriyle etkileşime girmeden veri manipülasyonunu test edebilirsin.
+
+- Kapsülleme:
+Modelin detaylarını gizleyip, sadece gerekli bilgileri View katmanına sunar. Bu, MVC veya MVVM yapılarında katmanlar arası geçişin daha temiz olmasını sağlar.

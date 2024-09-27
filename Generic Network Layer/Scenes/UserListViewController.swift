@@ -8,9 +8,9 @@
 import UIKit
 
 class UserListViewController: UIViewController {
-    
     // MARK: - Properties
-    private var users: [User] = []
+    private var users: [UserPresentation] = []
+    var collectionView: UICollectionView!
     
     var viewModel: UserListViewModelProtocol! {
         didSet {
@@ -39,5 +39,11 @@ extension UserListViewController: UserListViewModelDelegate {
             // TODO: Implement.
             break
         }
+    }
+}
+
+extension UserListViewController {
+    func configureCollectionView() {
+        //TODO: Implement.
     }
 }

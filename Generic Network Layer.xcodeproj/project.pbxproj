@@ -22,6 +22,9 @@
 		0EF7B12B2CA52D010076A92A /* UserListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B12A2CA52D010076A92A /* UserListBuilder.swift */; };
 		0EF7B12D2CA52D650076A92A /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B12C2CA52D650076A92A /* AppRouter.swift */; };
 		0EF7B12F2CA52D6D0076A92A /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B12E2CA52D6D0076A92A /* AppContainer.swift */; };
+		0EF7B1312CA681F80076A92A /* UserPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B1302CA681F80076A92A /* UserPresentation.swift */; };
+		0EF7B1342CA68E940076A92A /* CGFloat+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B1332CA68E940076A92A /* CGFloat+Ext.swift */; };
+		0EF7B1372CA691330076A92A /* CollectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EF7B1362CA691330076A92A /* CollectionViewHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,9 @@
 		0EF7B12A2CA52D010076A92A /* UserListBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListBuilder.swift; sourceTree = "<group>"; };
 		0EF7B12C2CA52D650076A92A /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		0EF7B12E2CA52D6D0076A92A /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		0EF7B1302CA681F80076A92A /* UserPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPresentation.swift; sourceTree = "<group>"; };
+		0EF7B1332CA68E940076A92A /* CGFloat+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Ext.swift"; sourceTree = "<group>"; };
+		0EF7B1362CA691330076A92A /* CollectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,8 @@
 		0E9AE3E22CA41C9800B939DA /* Generic Network Layer */ = {
 			isa = PBXGroup;
 			children = (
+				0EF7B1352CA6911B0076A92A /* Helper */,
+				0EF7B1322CA68E680076A92A /* Extensions */,
 				0E9AE3FD2CA4219700B939DA /* Comment */,
 				0E9AE4022CA4324300B939DA /* Model */,
 				0E9AE3FA2CA41F5900B939DA /* Service */,
@@ -91,6 +99,7 @@
 				0E9AE4052CA43DBD00B939DA /* UserListViewModel.swift */,
 				0EF7B1282CA52C6F0076A92A /* UserListContracts.swift */,
 				0EF7B12A2CA52D010076A92A /* UserListBuilder.swift */,
+				0EF7B1302CA681F80076A92A /* UserPresentation.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -156,6 +165,22 @@
 				0E9AE4002CA4228000B939DA /* EndPoint.swift */,
 			);
 			path = NetworkLayer;
+			sourceTree = "<group>";
+		};
+		0EF7B1322CA68E680076A92A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0EF7B1332CA68E940076A92A /* CGFloat+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0EF7B1352CA6911B0076A92A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				0EF7B1362CA691330076A92A /* CollectionViewHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +256,7 @@
 			files = (
 				0EF7B1292CA52C6F0076A92A /* UserListContracts.swift in Sources */,
 				0EF7B1242CA51C910076A92A /* UserService.swift in Sources */,
+				0EF7B1372CA691330076A92A /* CollectionViewHelper.swift in Sources */,
 				0E9AE3FC2CA41F6D00B939DA /* NetworkManager.swift in Sources */,
 				0E9AE3E82CA41C9800B939DA /* UserListViewController.swift in Sources */,
 				0E9AE4042CA4325600B939DA /* User.swift in Sources */,
@@ -238,8 +264,10 @@
 				0E9AE4012CA4228000B939DA /* EndPoint.swift in Sources */,
 				0E9AE3E42CA41C9800B939DA /* AppDelegate.swift in Sources */,
 				0EF7B12D2CA52D650076A92A /* AppRouter.swift in Sources */,
+				0EF7B1312CA681F80076A92A /* UserPresentation.swift in Sources */,
 				0E9AE3E62CA41C9800B939DA /* SceneDelegate.swift in Sources */,
 				0EF7B12B2CA52D010076A92A /* UserListBuilder.swift in Sources */,
+				0EF7B1342CA68E940076A92A /* CGFloat+Ext.swift in Sources */,
 				0E9AE4062CA43DBD00B939DA /* UserListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

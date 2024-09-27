@@ -10,6 +10,7 @@ import Foundation
 protocol UserServiceProtocol {
     func getUser(complation: @escaping (Result<[User], NetworkError>) -> Void)
 }
+
 final class UserService: UserServiceProtocol {
     func getUser(complation: @escaping (Result<[User], NetworkError>) -> Void) {
         let endPoint = EndPoint.getUser

@@ -10,7 +10,8 @@ import Foundation
 // MARK: - ViewModel Output Enum
 enum UserListViewModelOutput {
     case updateTitle(String)
-    case showUser([User])
+    case showUser([UserPresentation])
+
 }
 
 // MARK: - ViewModel Class
@@ -32,7 +33,8 @@ class UserListViewModel: UserListViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let result):
-                self.notify(.showUser(result))
+                let presentation = result.map({UserPresentation(user: $0)})
+                self.notify(.showUser(presentation))
             case .failure(let error):
                 print(error)
             }

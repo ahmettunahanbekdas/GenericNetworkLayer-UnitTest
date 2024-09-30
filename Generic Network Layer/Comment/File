@@ -113,7 +113,17 @@ Modelin detaylarını gizleyip, sadece gerekli bilgileri View katmanına sunar. 
 - UIView için bir ext oluşturuyoruz pinToEdgesOf adında
 Bu kod, bir UIView uzantısı (extension) ekleyerek, bir görünümün (UIView'un) kenarlarını başka bir görünüme yapıştırmak (pinlemek) için kolaylaştırılmış bir yöntem oluşturur. Bu uzantı, otomatik düzen (auto layout) kullanarak bir alt görünümün (subview) üst, alt, sol ve sağ kenarlarını üst görünümün (superview) kenarlarına sabitlemeyi sağlar.
 
-- 
 
+* CustomCell oluşturuyoruz *
 
+- İlk olarak burada hep kulllanılan fakat işlevi pek bilinmeyen bir kod bloğunu açıklayacağız ->
 
+    1. override init(frame: CGRect)
+Amaç: Bu, hücrenin başlatılması (initialize) sırasında çalışan bir fonksiyondur. Bu initializer, UICollectionViewCell'in varsayılan başlatıcısını geçersiz kılar ve hücre oluşturulduğunda çağrılır.
+frame: Hücrenin boyutlarını belirten CGRect tipi bir değişken. Bu değişken, hücrenin Collection View'de nasıl yerleşeceğini ve ne kadar yer kaplayacağını tanımlar.
+super.init(frame: frame): Burada UICollectionViewCell'in kendi init fonksiyonunu çağırarak, hücrenin düzgün bir şekilde başlatılmasını sağlıyorsun.
+
+    2. required init?(coder: NSCoder)
+Amaç: Bu, Interface Builder (storyboard veya nib dosyaları) ile hücre oluşturulursa çağrılan bir başlatıcıdır.
+fatalError("init(coder:) has not been implemented"): Eğer bu hücre Interface Builder üzerinden oluşturulursa, bu fonksiyon çalışacak. Ama şu an sadece kodla hücre oluşturduğun için, burada fatalError ile uygulamanın çökmesine neden oluyorsun. Bu şekilde, Interface Builder kullanılmadığında hata vereceğini belirtmiş oluyorsun.
+Neden kullanılır: Eğer hücre sadece programatik olarak kullanılacaksa, storyboard kullanmadığını göstermek için bu init'i implement edip fatalError fırlatabilirsin.

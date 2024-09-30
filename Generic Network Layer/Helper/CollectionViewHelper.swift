@@ -13,8 +13,8 @@ enum CollectionViewHelper {
         let dWidth = CGFloat.dWidth
         
         layout.scrollDirection = .vertical
-        layout.itemSize = CGSize(width: dWidth, height: dWidth/3)
-        layout.minimumLineSpacing = dWidth/10
+        layout.itemSize = CGSize(width: dWidth/1.1, height: dWidth/4)
+        layout.minimumLineSpacing = dWidth/20
         return layout
     }
 }

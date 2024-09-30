@@ -14,8 +14,13 @@ enum UserListViewModelOutput {
 
 }
 
+enum UserListViewRoute {
+    case toDetail(UserDetailViewModelProtocol)
+}
 // MARK: - ViewModel Class
-class UserListViewModel: UserListViewModelProtocol {
+final class UserListViewModel: UserListViewModelProtocol {
+ 
+    var userList:[User] = []
     
     // MARK: - Properties
     weak var delegate: UserListViewModelDelegate?
@@ -33,8 +38,10 @@ class UserListViewModel: UserListViewModelProtocol {
             guard let self = self else { return }
             switch result {
             case .success(let result):
+                self.userList = result
                 let presentation = result.map({UserPresentation(user: $0)})
                 self.notify(.showUser(presentation))
+                self.notify(.updateTitle("Users"))
             case .failure(let error):
                 print(error)
             }
@@ -44,5 +51,11 @@ class UserListViewModel: UserListViewModelProtocol {
     // MARK: - Notify Delegate
     func notify(_ output: UserListViewModelOutput) {
         delegate?.handleViewModelOutput(output)
+    }
+    
+    func selectedUser(at index: Int) {
+        let selectedUser = self.userList[index]
+        let viewModel = UserDetailViewModel(user: selectedUser)
+        delegate?.navigate(to: .toDetail(viewModel))
     }
 }

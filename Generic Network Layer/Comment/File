@@ -127,3 +127,16 @@ super.init(frame: frame): Burada UICollectionViewCell'in kendi init fonksiyonunu
 Amaç: Bu, Interface Builder (storyboard veya nib dosyaları) ile hücre oluşturulursa çağrılan bir başlatıcıdır.
 fatalError("init(coder:) has not been implemented"): Eğer bu hücre Interface Builder üzerinden oluşturulursa, bu fonksiyon çalışacak. Ama şu an sadece kodla hücre oluşturduğun için, burada fatalError ile uygulamanın çökmesine neden oluyorsun. Bu şekilde, Interface Builder kullanılmadığında hata vereceğini belirtmiş oluyorsun.
 Neden kullanılır: Eğer hücre sadece programatik olarak kullanılacaksa, storyboard kullanmadığını göstermek için bu init'i implement edip fatalError fırlatabilirsin.
+
+Bu kod, bir UICollectionViewCell olan UserListCell'i tanımlıyor. Bu hücre, kullanıcı bilgilerini göstermek için tasarlandı. İşte basit bir açıklama:
+
+Properties: Hücrede bir nameLabel (kullanıcı ismi) ve bir phoneLabel (telefon numarası) var. Bu etiketler, kullanıcı bilgilerini göstermek için kullanılıyor.
+İnitializer: Hücre ilk oluşturulduğunda, configureCell fonksiyonu çağrılarak hücre yapılandırılıyor. Bu fonksiyon, arka plan rengini ayarlayıp etiketleri ekliyor.
+setUser Methodu: Bu metod, dışarıdan bir UserPresentation nesnesi alıyor. Kullanıcının adı nameLabel'a, telefon numarası phoneLabel'a yerleştiriliyor ve hücreye köşe yuvarlaması (cornerRadius) ekleniyor.
+Auto Layout: Etiketler, hücrede ortalanmış durumda ve aralarındaki boşluk ayarlanmış.
+Bu sayede her hücre, kullanıcının adını ve telefon numarasını gösteriyor, ayrıca hücrelerin köşeleri yuvarlanıyor.
+
+
+* DetailUserView oluşturuyoruz *
+
+

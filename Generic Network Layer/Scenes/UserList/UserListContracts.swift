@@ -10,8 +10,10 @@ import Foundation
 protocol UserListViewModelProtocol: AnyObject {
     var delegate: UserListViewModelDelegate? { get set }
     func loadUserList()
+    func selectedUser(at index: Int)
 }
 
 protocol  UserListViewModelDelegate: AnyObject {
     func handleViewModelOutput(_ output: UserListViewModelOutput)
+    func navigate(to route: UserListViewRoute)
 }

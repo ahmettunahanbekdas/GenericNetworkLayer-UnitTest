@@ -20,7 +20,7 @@ final class UserListCell: UICollectionViewCell {
         return label
     }()
     
-    private let phoneNumber: UILabel = {
+    private let phoneLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 12, weight: .bold)
         label.textColor = .secondaryLabel
@@ -42,14 +42,14 @@ extension UserListCell {
     // MARK: - Configuration Methods
     func configureCell() {
         backgroundColor = .systemGray3
+        layer.cornerRadius = CGFloat.dWidth/10
         setupNameLabel()
         setupPhoneLabel()
     }
     func setUser(_ user: UserPresentation) {
         self.user = user
         nameLabel.text = user.title
-        phoneNumber.text = user.phone
-        layer.cornerRadius = CGFloat.dWidth/10
+        phoneLabel.text = user.phone
     }
     // MARK: - Setup Methods
     private func setupNameLabel() {
@@ -62,10 +62,10 @@ extension UserListCell {
     }
     
     private func setupPhoneLabel() {
-        contentView.addSubview(phoneNumber)
+        contentView.addSubview(phoneLabel)
         NSLayoutConstraint.activate([
-            phoneNumber.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: CGFloat.dWidth/100),
-            phoneNumber.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            phoneLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: CGFloat.dWidth/100),
+            phoneLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
         ])
     }
     

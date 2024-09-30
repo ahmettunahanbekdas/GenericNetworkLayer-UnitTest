@@ -100,3 +100,20 @@ Presentation yapıları, arayüz kodlarından bağımsız oldukları için daha 
 
 - Kapsülleme:
 Modelin detaylarını gizleyip, sadece gerekli bilgileri View katmanına sunar. Bu, MVC veya MVVM yapılarında katmanlar arası geçişin daha temiz olmasını sağlar.
+
+
+* CollectionView'mizi oluşturuyoruz *
+
+- İlk olarak bir ext CGFloat için bir extension yazıyoruz.Bu CGFloat extension'ı, ekranın genişliği (dWidth) ve yüksekliği (dHeight) gibi özellikleri daha kolay ve hızlı bir şekilde kullanmana olanak tanır. Kodun içinde her seferinde UIScreen.main.bounds.width ve UIScreen.main.bounds.height yazmak yerine, bu extension sayesinde daha okunabilir ve daha kısa bir kod yazabilirsin.
+
+- CollectionViewHelper oluşturuyoruz, Bu kod, CollectionViewHelper adında bir enum içerisinde, CreateUserListFlowLayout isimli bir statik fonksiyon tanımlıyor. Bu fonksiyon, UICollectionViewFlowLayout nesnesi oluşturup, koleksiyon görünümünde kullanılacak düzen (layout) yapılandırması yapmayı amaçlıyor.
+
+- Şimdi UserListViewController içersinde collectionView'mizi oluşturuyoruz gereken helper ve ext oluşururarak devam ediyoruz.
+
+- UIView için bir ext oluşturuyoruz pinToEdgesOf adında
+Bu kod, bir UIView uzantısı (extension) ekleyerek, bir görünümün (UIView'un) kenarlarını başka bir görünüme yapıştırmak (pinlemek) için kolaylaştırılmış bir yöntem oluşturur. Bu uzantı, otomatik düzen (auto layout) kullanarak bir alt görünümün (subview) üst, alt, sol ve sağ kenarlarını üst görünümün (superview) kenarlarına sabitlemeyi sağlar.
+
+- 
+
+
+

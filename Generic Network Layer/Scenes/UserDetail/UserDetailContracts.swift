@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+protocol UserDetailViewModelProtocol: AnyObject {
+    var delegate: UserDetailViewModelDelegate? { get set }
+    func load()
+}
+
+protocol UserDetailViewModelDelegate: AnyObject {
+    func showDetail(_ presentation: UserDetailPresentation)
+}

@@ -12,9 +12,6 @@ class UserDetailViewController: UIViewController {
     var suiteLabel = UILabel()
     var cityLabel = UILabel()
 
-    deinit {
-        print("Deinit")
-    }
 
     var viewModel: UserDetailViewModelProtocol! {
         didSet {
@@ -25,8 +22,8 @@ class UserDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        setupView()
         viewModel.load()
+        setupView()
     }
 }
 
@@ -40,7 +37,6 @@ extension UserDetailViewController: UserDetailViewModelDelegate {
 }
 
 extension UserDetailViewController {
-    
     func setupView() {
          setupLabels()
     }
@@ -52,7 +48,6 @@ extension UserDetailViewController {
             label.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(label)
         }
-
         NSLayoutConstraint.activate([
             streetLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: .dWidth * 0.05),
             streetLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: .dHeight * 0.2),

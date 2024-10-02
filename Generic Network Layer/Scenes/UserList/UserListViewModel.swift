@@ -11,7 +11,6 @@ import Foundation
 enum UserListViewModelOutput {
     case updateTitle(String)
     case showUser([UserPresentation])
-
 }
 
 enum UserListViewRoute {

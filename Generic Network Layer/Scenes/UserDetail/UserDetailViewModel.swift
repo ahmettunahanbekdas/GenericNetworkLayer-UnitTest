@@ -7,15 +7,6 @@
 
 import Foundation
 
-protocol UserDetailViewModelProtocol: AnyObject {
-    var delegate: UserDetailViewModelDelegate? { get set }
-    func load()
-}
-
-protocol UserDetailViewModelDelegate: AnyObject {
-    func showDetail(_ presentation: UserDetailPresentation)
-}
-
 final class UserDetailViewModel: UserDetailViewModelProtocol{
     weak var delegate: UserDetailViewModelDelegate?
     var presentation: UserDetailPresentation?
@@ -25,6 +16,10 @@ final class UserDetailViewModel: UserDetailViewModelProtocol{
     }
     
     func load() {
-        delegate?.showDetail(presentation!)
+        guard let presentation = presentation else {
+            print("Error: Presentation is nil")
+            return
+        }
+        delegate?.showDetail(presentation)
     }
 }

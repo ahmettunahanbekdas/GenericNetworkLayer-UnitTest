@@ -139,4 +139,41 @@ Bu sayede her hücre, kullanıcının adını ve telefon numarasını gösteriyo
 
 * DetailUserView oluşturuyoruz *
 
+- İlk olarak sayfa geçiş işlemini nasıl yaptığımıza bakacağız.
+1. UserListViewController içersinde bulunan didSelectItemAt fonksiyonu yardımı ile birlikte kullanıcının seçmiş olduğu indeksi alıyoruz.
+2. Kullanıcının tıklamış olduğu indeki  viewModel içersinde oluşturduğumuz selectedUser fonksiyonuna UserListViewModelProtocol yardımı ile iletiyoruz.
+3. Seçilen index' içersinde bulunan user'ı alıyoruz viewModel içersinde oluşturduğumuz User tipinde ki array yardımı ile.
+4. DetailView modeli oluşturuyoruz viewModel içersinde bulunan selectedUser içersinde ve init olurken istenen User'a oluşturduğumuz User objesini veriyoruz 
+5. Delegate yardımıyla ViewController içersinde bulunana navigate fonksiyonuna ulaşıyoruz ve bir üst satırda oluşturduğumuz DetailViewModel'i UserListViewRoute enumu ile navigate fonksiyonuna iletiyoruz.
+6. Burada viewController'da bulunan navigate fonksiyonuda UserListViewRoute tipinde bir parametre istiyor zaten bizden.
+7. Burada switch case ile gelen viewModel'imizi (DetailViewModeli) UserDetailBuilder.make fonksiyonuna iletiyoruz oda bize bir viewController dönüyor buda bizim DetailViewControllerımız
+8. show(viewController, sender: nil) ile sayfamızı kullanıcıya seçtiği user'a göre gösteriyoruz.
+
+- DetailViewController UI ve Data işlemleri
+1. İlk olarak bildiğimiz üzere biz viewModel'imizi init ettik burada init ettiğimiz anda bizim detailView için oluşturduğumuz UserDetailPresentation yardımıyla gelen User model tipinde ki seçilen user'ı UserDetailPresentation tipine dönüştürüyoruz ve DetailViewModel içersinde oluşturduğumuz presentation objemizin içersine atıyoruz.
+2. DetailViewController içersinde viewDidLoad() çalıştığı anda UserDetailViewModelProtocol yardımı ile viewModel içersinde oluşturduğumuz laod() fonksiyonunu çalıştırıyoruz.
+3. ViewModel içersinde bulunan load func'muz çalıştığı anda ise bizim UserDetailPresentation tipinde ki presentation nesnemizi guard let ile kontrol ederek delegate yardımı ile viewController'ımız içersinde bulunan showDetail fonksiyonumuz içersine parametre olarak veriyoruz.
+4. Ve presentation yardımıyla adlığımız değerleri configureLabel fonksiyonunda NSMutableAttributedString kullanarak ekranımızda gösteriyoruz.
+
+
+* Unit Test * 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

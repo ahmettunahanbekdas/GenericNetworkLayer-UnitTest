@@ -46,11 +46,11 @@ extension UserListViewController: UserListViewModelDelegate {
         switch output {
         case .showUser(let user):
             self.users = user
-            DispatchQueue.main.async { // Ana iş parçacığına geçiyoruz
-                self.collectionView.reloadData() // Veriler geldikten sonra CollectionView'i yeniden yükleyin
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
             }
         case .updateTitle(let title):
-            DispatchQueue.main.async { // Ana iş parçacığına geçiyoruz
+            DispatchQueue.main.async {
             self.title = title
             }
         }

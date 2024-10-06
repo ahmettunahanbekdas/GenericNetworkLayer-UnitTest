@@ -7,7 +7,7 @@
 
 import Foundation
 
-class UserPresentation {
+class UserPresentation: NSObject {
     let title: String
     let phone: String
     
@@ -18,5 +18,10 @@ class UserPresentation {
     
     convenience init(user: User) {
         self.init(title: user.name!, phone: user.phone!)
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let other = object as? UserPresentation else { return false }
+        return self.title == other.title && self.phone == other.phone
     }
 }

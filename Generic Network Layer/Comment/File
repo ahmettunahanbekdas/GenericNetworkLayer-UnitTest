@@ -157,23 +157,29 @@ Bu sayede her hücre, kullanıcının adını ve telefon numarasını gösteriyo
 
 
 * Unit Test * 
+- Testimizi target'a ekledik
+1. @testable import Generic_Network_Layer yazarak, bu modülün internal (içsel) yapıları ve işlevlerine test dosyasından erişebilirsin, böylece normalde gizli olan işlevleri test etme olanağına sahip olursun.
+2. İlk olarak her test case'de bize lazım olacak viewModel'imizi ekliyoruz testimize.
+3. Bu viewModel'i oluşturmak için bir servise ihtiyacımız var.
+4 Mock olarak bu servisi oluşturuyoruz, bu mock servis network'e gitmeyecek içersine biz oluşturduğumuz user'ları koyacağız o dönecek
+5. Şimdi testExample içersinde test yazmaya başlıyouruz fakat bizim neye ihtiyacımız var
+6. Burada biz viewModel'e çağrılar yapacağız ve bize bir output dönmesini bekleyeceğiz, dolayısıyla mock bir view yazmamız gerekecek.
+7. MockUserView adında bir mock view oluşturuyoruz ve bu mockView UserListViewModelDelegate'e conform edecek.
+8. Şimdi nasıl mocklayacağımızı düşünelim, ilk olarak bize output'lar birden fazla gelecekler biz bunları UserListViewModelOutput tipinde bir arrayde tutabiliriz
+9. bunun için mockView içersinde bir UserListViewModelOutput tipinde bir outputs array'i oluşturduk handleViewModelOutput func'dan dönen outpuları burada tutacağız.
+10. Sonrasında da gelen outputlara test func'muz içersinde tek tek bakarız.
+11. view'mizide class içersinde oluşturuyoruz ve viewModel'in delegate'inide oluşturduğumuz MockView olarak atıyoruz.
+12. Şimdi test func'unu içersinde yazmaya başlıyoruz burada: Given, When, Then yapısını yazıyoruz.
 
-  
+13. When -> Burada kullanmak üzere iki adet yapımız var ilk olarak bir json oluşturuyoruz,
+bu json bizim test edeceğimiz json olacak sonrasında da bu json'ı decode etmesi için bir ResourceLoader oluşturuyoruz. bir JSON dosyasını yükleyip decode ederek User modeline dönüştüren bir sınıf olan ResourceLoader'ı tanımlar.
+14. Sonrasında When kısımında mockService de oluşturduğumuz user içersine resource loader'dan dönen user'mızı veriyoruz, bu şekilde bize service user'ı dönecek.
 
+15. When -> Kendimizi view'in yerine koyalım view laod ettiğinde viewModel.load() fonksiyonunu çağırıcak o yüzden viewModel'de bulunana loadUserList fonksiyonunu çağrıyoruz.
 
+16. Then -> Burada view load ettiğinde ne bekliyoruz buna bakacağız,
+ilk olarak view'de bulunan outpustlarımızı kontrol edeceğiz.
+17. İlk outputumuz .updatetitle burada onu test ettik. Burada önemli olan nokta burada biz bir view özelliğini test ediyoruz bu doğru mu ilk olarak bunda dikkat etmemiz gerekiyor istersek direkt olarak ilk utputun ne olduğunu test edebiliriz veya direkt string değerini test ederiz daha doğru olan ilk seçeneğimiz kodda her iksi de gösterildi.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+18. Bir diğer loadTest içeriğimiz ise .showUser outputs'umuz olacak burada ise yapmamız gereken bizim ResourceLoader ile oluşturduğumuz movie'yi ilk olarak UserPresentation ile değiştirerek view outputunda doğru olarak aktarılıp aktarılmadığını test ettik
+19. Bu şekilde Loadte st'imizi tamamladık.

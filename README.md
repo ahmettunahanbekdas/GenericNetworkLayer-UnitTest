@@ -19,4 +19,4 @@ To clone the project to your local machine, use the following command:
 
 ```bash
 git clone https://github.com/username/project-name.git
-
+```

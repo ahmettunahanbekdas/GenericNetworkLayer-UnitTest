@@ -156,7 +156,9 @@ Bu sayede her hücre, kullanıcının adını ve telefon numarasını gösteriyo
 4. Ve presentation yardımıyla adlığımız değerleri configureLabel fonksiyonunda NSMutableAttributedString kullanarak ekranımızda gösteriyoruz.
 
 
-* Unit Test * 
+* Unit Test *
+
+* Load Test *
 - Testimizi target'a ekledik
 1. @testable import Generic_Network_Layer yazarak, bu modülün internal (içsel) yapıları ve işlevlerine test dosyasından erişebilirsin, böylece normalde gizli olan işlevleri test etme olanağına sahip olursun.
 2. İlk olarak her test case'de bize lazım olacak viewModel'imizi ekliyoruz testimize.
@@ -183,3 +185,13 @@ ilk olarak view'de bulunan outpustlarımızı kontrol edeceğiz.
 
 18. Bir diğer loadTest içeriğimiz ise .showUser outputs'umuz olacak burada ise yapmamız gereken bizim ResourceLoader ile oluşturduğumuz movie'yi ilk olarak UserPresentation ile değiştirerek view outputunda doğru olarak aktarılıp aktarılmadığını test ettik
 19. Bu şekilde Loadte st'imizi tamamladık.
+
+
+
+* Navigate Test *
+
+1. Given -> İlk olarak bizim view'imizde movie'lerin listelenmesi gerek bunun için
+
+2. When -> Given kısmında ekranımza oluşturduğumuz user'ları ekledik şimdi ise yapmamız gereken ben 0. index'e tıkladığımda ne olacak bunu test edeceğiz.
+3. Ben burada viewModel'deki selectedUser ile 0. index'e tıkladım.
+4. MockUserView içersinde navigate fonksiyonumuz var burada biz sadece bu fonksiyonun çağrılıp çağrılmadığını test edeceğiz bu sebeple basit bir bool değer tutsak yeterli olur

@@ -49,16 +49,25 @@ final class GenericNetworkLayerTests: XCTestCase {
         XCTAssertEqual(view.outpust[1], .showUser(expectedUser))
         
     }
+    
+    // MARK: - Navigate Test
+    func testNavigate() throws {
+        // Given:
+        let movie1 = try ResourceLoader.userLoader(resource: .user1)
+        service.user = [movie1]
+        viewModel.loadUserList()
+        // Bu işlem, testlerin güvenilirliğini artırmak ve her testin doğru bir şekilde değerlendirildiğinden emin olmak için kritik öneme sahiptir.
+        view.outpust.removeAll()
+
+        // When:
+        viewModel.selectedUser(at: 0 )
+        
+        // Then:
+        XCTAssertTrue(view.detailViewCalled)
+    }
 }
 
-// MARK: - Navigate Test
-func testNavigate() throws {
-    // Given:
-    
-    // When:
-    
-    // Then:
-}
+
         
         // MARK: - Mock Service
         final class MockUserListService: UserServiceProtocol {
@@ -72,13 +81,18 @@ func testNavigate() throws {
         // MARK: - Mock View
         final class MockUserView: UserListViewModelDelegate {
             var outpust: [UserListViewModelOutput] = []
+            var detailViewCalled = false
             
             func handleViewModelOutput(_ output: Generic_Network_Layer.UserListViewModelOutput) {
                 outpust.append(output)
             }
             
             func navigate(to route: Generic_Network_Layer.UserListViewRoute) {
-                
+                switch route {
+                case.toDetail:
+                    self.detailViewCalled = true
+                    break
+                }
             }
         }
 

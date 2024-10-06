@@ -22,7 +22,7 @@ git clone https://github.com/username/project-name.git
 
 The project has been developed using the MVVM (Model-View-ViewModel) architecture. MVVM allows for the separation of application components (model, view, and view model), making the code more readable and easier to maintain.
 
-# MVVM Components:
+### MVVM Components:
 - **Model:** Represents the data. Contains business logic related to the application data.
 - **View:** Represents the user interface. Receives user interactions and communicates with the ViewModel.
 - **ViewModel:** Acts as a bridge between the Model and the View. It binds data to the View and processes user interactions with the model.
@@ -31,7 +31,7 @@ The project has been developed using the MVVM (Model-View-ViewModel) architectur
  
 A generic network layer has been created in the project. This layer provides a reusable structure for managing different API calls. Thanks to its generic nature, we can make network requests using the same code for different data types.
 
-# Example Usage:
+### Example Usage:
 
 ```swift
 class NetworkService<T: Decodable> {
@@ -46,7 +46,7 @@ class NetworkService<T: Decodable> {
 
 Unit tests have been written for the project to test the functionality of the application. Unit tests are used to verify that each component works as expected. This increases the reliability of the code and allows for early detection of potential issues.
 
-# Example of Writing a Unit Test:
+#### Example of Writing a Unit Test:
 ```swift
 import XCTest
 @testable import ProjectName

@@ -15,7 +15,7 @@ This project is an iOS application developed using the MVVM architecture. The pr
 To clone the project to your local machine, use the following command:
 
 ```bash
-git clone https://github.com/username/project-name.git
+git clone https://github.com/ahmettunahanbekdas/GenericNetworkLayer-UnitTest
 ```
 
 ## Architecture

@@ -6,10 +6,6 @@
 //
 
 import Foundation
-
-
-
-
 // MARK: - ViewModel Class
 final class UserListViewModel: UserListViewModelProtocol {
 

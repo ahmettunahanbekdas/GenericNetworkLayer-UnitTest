@@ -195,3 +195,4 @@ ilk olarak view'de bulunan outpustlarımızı kontrol edeceğiz.
 2. When -> Given kısmında ekranımza oluşturduğumuz user'ları ekledik şimdi ise yapmamız gereken ben 0. index'e tıkladığımda ne olacak bunu test edeceğiz.
 3. Ben burada viewModel'deki selectedUser ile 0. index'e tıkladım.
 4. MockUserView içersinde navigate fonksiyonumuz var burada biz sadece bu fonksiyonun çağrılıp çağrılmadığını test edeceğiz bu sebeple basit bir bool değer tutsak yeterli olur
+5. Bu şekilde navigateTest'i de tamamlamış olduk.

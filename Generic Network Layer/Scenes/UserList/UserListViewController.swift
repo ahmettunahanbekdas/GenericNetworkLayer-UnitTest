@@ -7,8 +7,8 @@
 
 import UIKit
 
+
 class UserListViewController: UIViewController {
-    
     // MARK: - Properties
     var collectionView: UICollectionView!
     private var users: [UserPresentation] = []

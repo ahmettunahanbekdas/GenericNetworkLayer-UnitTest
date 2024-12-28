@@ -1,4 +1,4 @@
-# Generic Network Layer and Unit Testing Example
+# SwiftUnitTestWithGeneric
 
 This project demonstrates a reusable **Generic Network Layer** for API communication and robust **Unit Testing** to ensure application reliability and maintainability. The application is built using **Swift** and emphasizes scalability, modularity, and testability.
 
@@ -37,7 +37,9 @@ The following architectural patterns and principles are applied:
   - Includes mock data and stubs for API responses.
   - Verifies error handling, data decoding, and network calls independently.
 
-### Example Usage:
+
+
+### Example Usage Network Manager:
 ```swift
 class NetworkService<T: Decodable> {
     func fetchData(from url: URL, completion: @escaping (Result<T, Error>) -> Void) {
@@ -45,10 +47,6 @@ class NetworkService<T: Decodable> {
     }
 }
 ```
-
-
-## Unit Tests
-Unit tests have been written for the project to test the functionality of the application. Unit tests are used to verify that each component works as expected. This increases the reliability of the code and allows for early detection of potential issues.
 
 ### Example of Writing a Unit Test:
 ```swift

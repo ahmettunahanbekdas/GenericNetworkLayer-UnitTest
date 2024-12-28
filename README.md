@@ -1,31 +1,41 @@
-# GenericNetworkLayer-UnitTest
+# Generic Network Layer and Unit Testing Example
 
-This project is an iOS application developed using the MVVM architecture. The project stands out with its modular structure and generic network layer. Additionally, unit tests have been written to validate the functionality of the application.
+This project demonstrates a reusable **Generic Network Layer** for API communication and robust **Unit Testing** to ensure application reliability and maintainability. The application is built using **Swift** and emphasizes scalability, modularity, and testability.
 
-## Table of Contents
-- [Getting Started](#getting-started)
-- [Architecture](#architecture)
-- [Generic Network Layer](#generic-network-layer)
-- [Modular Architecture](#modular-architecture)
-- [Unit Tests](#unit-tests)
+## Features
 
-## Getting Started
-To clone the project to your local machine, use the following command:
+- **Generic Network Layer**:
+  - Simplifies API requests with a reusable and type-safe architecture.
+  - Supports GET, POST, and other HTTP methods.
+  - Decodes responses using Swift's `Codable` protocol.
+  - Error handling for network and parsing issues.
 
-```bash
-git clone https://github.com/ahmettunahanbekdas/GenericNetworkLayer-UnitTest
-```
+- **Unit Testing**:
+  - Comprehensive test coverage for network requests and response handling.
+  - Mocking capabilities to simulate API responses.
+  - Ensures the reliability of the network layer and application logic.
 
-## Architecture
-The project has been developed using the MVVM (Model-View-ViewModel) architecture. MVVM allows for the separation of application components (model, view, and view model), making the code more readable and easier to maintain.
+## Technologies Used
 
-### MVVM Components:
-- **Model:** Represents the data. Contains business logic related to the application data.
-- **View:** Represents the user interface. Receives user interactions and communicates with the ViewModel.
-- **ViewModel:** Acts as a bridge between the Model and the View. It binds data to the View and processes user interactions with the model.
+The project leverages the following technologies:
 
- ## Generic Network Layer
-A generic network layer has been created in the project. This layer provides a reusable structure for managing different API calls. Thanks to its generic nature, we can make network requests using the same code for different data types.
+- **Swift**: Programming language.
+- **URLSession**: For networking tasks.
+- **XCTest**: For writing and running unit tests.
+
+## Architecture and Development Principles
+
+The following architectural patterns and principles are applied:
+
+- **Generic Network Layer**:
+  - Built with generics to allow flexibility for different types of API requests.
+  - Centralized `NetworkManager` to handle requests and responses.
+  - Decoupled logic to facilitate testing and code reuse.
+
+- **Unit Testing**:
+  - Uses `XCTest` framework.
+  - Includes mock data and stubs for API responses.
+  - Verifies error handling, data decoding, and network calls independently.
 
 ### Example Usage:
 ```swift
